@@ -1,21 +1,16 @@
-const PizzaCrust = require("./controller/pizzacrust");
-const Vslot = require("./controller/vslot");
-const TomatoSauce = require("./controller/tomatosauce");
-const Cheese = require("./controller/cheese");
-const Pepperoni = require("./controller/pepperoni");
+const express = require("express");
+const orderRoutes = require("./routes/order");
 
-const main = async () => {
-  const pizzaCrust = new PizzaCrust();
-  const vslot = new Vslot();
-  const tomatosauce = new TomatoSauce();
-  const cheese = new Cheese();
-  const pepperoni = new Pepperoni();
+const app = express();
 
-  //await pizzaCrust.forwardlinearActuator();
-  //await vslot.toTomatoSauce();
-  //await tomatosauce.executeTomatoSauce();
-  //await cheese.initRun();
-  await pepperoni.initRun(0);
-  await pepperoni.initRun(180);
-};
-main();
+app.listen(3001);
+app.set("view engine", "ejs");
+
+app.use(express.static("public"));
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.use("/order", orderRoutes);
