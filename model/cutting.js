@@ -5,7 +5,7 @@ const limitswitch = new LimitSwitch();
 class Cutting extends Stepper {
   async forward() {
     const pins = [11, 8, 7, 26];
-    const steps = 3200;
+    const steps = 3300;
     for (let i = 0; i < steps; i++) {
       this.rotate(pins, 1);
       await this.delay(5);

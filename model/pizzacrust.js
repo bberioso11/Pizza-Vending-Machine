@@ -26,6 +26,7 @@ class PizzaCrust extends Stepper {
     for (let i = 0; i < steps; i++) {
       const limitResult = await limitswitch.execute(limitswitchPin);
       if (limitResult) {
+        console.log("pizza crust limit switch activated");
         break;
       }
       this.rotate(pins, -1);

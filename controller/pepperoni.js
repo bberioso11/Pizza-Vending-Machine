@@ -63,11 +63,19 @@ const setup = async () => {
   cheese.initRun(3500, 1000);
   await vslot.secondary(900, -1);
 
-  await vslot.primary(300, 1);
+  await vslot.primary(150, 1);
   cheese.initRun(3900, 0);
   await vslot.secondary(900, 1);
 
-  await vslot.primary(300, 1);
+  await vslot.primary(150, 1);
+  cheese.initRun(3900, 0);
+  await vslot.secondary(900, -1);
+
+  await vslot.primary(150, 1);
+  cheese.initRun(3800, 500);
+  await vslot.secondary(900, 1);
+
+  await vslot.primary(150, 1);
   cheese.initRun(3600, 500);
   await vslot.secondary(900, -1);
 
@@ -98,6 +106,8 @@ const setup = async () => {
   // cutting
   await vslot.secondary(400, -1);
   await vslot.primary(1800, 1);
+  await cutting.forward();
+  await cutting.reset();
 
   // claim
   await vslot.primary(1000, 1);
