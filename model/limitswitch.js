@@ -4,6 +4,7 @@ class LimitSwitch {
   async execute(pin) {
     const limitSwitch = new Gpio(pin, {
       mode: Gpio.INPUT,
+      pullUpDown: Gpio.PUD_UP,
     });
     const result = limitSwitch.digitalRead();
     // 0 = pressed

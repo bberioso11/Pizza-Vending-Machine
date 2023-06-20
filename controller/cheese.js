@@ -17,42 +17,70 @@ const setup = async () => {
 
   await resetMachine();
 
-  await pizzaCrust.forwardlinearActuator();
-  pizzaCrust.reverselinearActuator();
+  await pizzaCrust.forward();
+  pizzaCrust.reset();
   await vslot.primary(400, 1);
   tomatosauce.executeTomatoSauce(4500);
   await vslot.secondary(900, 1);
 
-  await vslot.primary(200, 1);
+  // tomato sauce
+  await vslot.primary(100, 1);
   tomatosauce.executeTomatoSauce(4500);
   await vslot.secondary(900, -1);
 
-  await vslot.primary(200, 1);
+  await vslot.primary(100, 1);
   tomatosauce.executeTomatoSauce(4500);
   await vslot.secondary(900, 1);
 
-  await vslot.primary(200, 1);
+  await vslot.primary(100, 1);
   tomatosauce.executeTomatoSauce(4500);
   await vslot.secondary(900, -1);
 
-  await vslot.primary(200, 1);
+  await vslot.primary(100, 1);
+  tomatosauce.executeTomatoSauce(4500);
+  await vslot.secondary(900, 1);
+
+  await vslot.primary(100, 1);
+  tomatosauce.executeTomatoSauce(4500);
+  await vslot.secondary(900, -1);
+
+  await vslot.primary(100, 1);
+  tomatosauce.executeTomatoSauce(4500);
+  await vslot.secondary(900, 1);
+
+  await vslot.primary(100, 1);
+  tomatosauce.executeTomatoSauce(4500);
+  await vslot.secondary(900, -1);
+
+  await vslot.primary(100, 1);
   tomatosauce.executeTomatoSauce(4500);
   await vslot.secondary(900, 1);
 
   //cheese
   await vslot.primary(600, 1);
-  cheese.initRun(16000, 1000);
+  cheese.initRun(3500, 1000);
   await vslot.secondary(900, -1);
 
   await vslot.primary(300, 1);
+  cheese.initRun(3900, 0);
   await vslot.secondary(900, 1);
 
   await vslot.primary(300, 1);
+  cheese.initRun(3600, 500);
   await vslot.secondary(900, -1);
 
   // cooking
   await vslot.primary(2800, 1);
-  await vslot.secondary(900, 1);
+  await vslot.secondary(1000, 1);
+  await cooking.execCooking();
+
+  // cutting
+  await vslot.primary(1800, 1);
+  await vslot.secondary(300, -1);
+
+  // claim
+  await vslot.primary(1000, 1);
+  await vslot.secondary(700, -1);
 };
 
 module.exports = setup;

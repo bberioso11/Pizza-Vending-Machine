@@ -94,7 +94,10 @@ function scanQRCode(video) {
                 });
               }
             }
-
+            const finish = await fetch(`/order/finish/${order.uuid}`, {
+              method: "GET",
+            });
+            console.log(await finish.json());
             stopScanning = false;
             document.querySelector("#order-details").innerHTML = "";
             requestAnimationFrame(scan);

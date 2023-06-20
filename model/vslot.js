@@ -5,8 +5,13 @@ const limitswitch = new LimitSwitch();
 class Vslot extends Stepper {
   async primary(steps, direction) {
     const pins = [27, 22, 10, 9];
+    const limitswitchPin = 0;
     const step = steps;
     for (let i = 0; i < step; i++) {
+      const limitResult = await limitswitch.execute(limitswitchPin);
+      if (limitResult) {
+        break;
+      }
       this.rotate(pins, direction);
       await this.delay(5);
     }
