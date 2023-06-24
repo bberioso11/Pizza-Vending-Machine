@@ -60,6 +60,14 @@ class Vslot extends Stepper {
   async toTomatoSauce() {
     await this.primary(2000, -1, 5);
   }
+
+  async timeout(ms) {
+    return await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  }
 }
 
 module.exports = Vslot;

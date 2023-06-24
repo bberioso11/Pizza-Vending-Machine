@@ -1,22 +1,26 @@
 const axios = require("axios");
 const cheeseCtrl = require("./cheese");
-//const pepperoniCtrl = require("./pepperoni");
+const pepperoniCtrl = require("./pepperoni");
 
 exports.orderValidate = async (req, res) => {
   const uuid = req.params.uuid;
   const { data } = await axios.get(
-    `http://pizzavending.store/order/validate/${uuid}`
+    `https://pizzavending.store/order/validate/${uuid}`
   );
   res.json(data);
 };
 
 exports.orderCapture = async (req, res) => {
   const uuid = req.params.uuid;
-  const { data } = await axios.get(
-    `http://pizzavending.store/order/capture/${uuid}`
-  );
+  try {
+    const { data } = await axios.get(
+      `https://pizzavending.store/order/capture/${uuid}`
+    );
 
-  res.json(data);
+    res.json(data);
+  } catch (err) {
+    console.log("problem here: ", err);
+  }
 };
 
 exports.orderStart = async (req, res) => {
@@ -30,6 +34,7 @@ exports.orderStart = async (req, res) => {
         "Your order is now ready. Please claim your order at the claiming area.",
     });
   } else {
+    await pepperoniCtrl();
     res.json({
       isSuccess: true,
       message:
@@ -43,7 +48,7 @@ exports.orderFinish = async (req, res) => {
   const status = "finished";
   try {
     const { data } = await axios.post(
-      `http://pizzavending.store/order/finish`,
+      `https://pizzavending.store/order/finish`,
       {
         uuid: uuid,
         status: status,

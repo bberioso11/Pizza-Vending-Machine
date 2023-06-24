@@ -1,9 +1,8 @@
 const Relay = require("./relay");
 
 class Cooking extends Relay {
-  async execCooking() {
+  async execCooking(ms) {
     const pin = 19;
-    const ms = 40000;
     this.executeRelay(pin, 0);
     return await new Promise((resolve) => {
       setTimeout(() => {

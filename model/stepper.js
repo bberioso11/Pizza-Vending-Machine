@@ -4,7 +4,7 @@ const LimitSwitch = require("./limitswitch");
 // 1 = clockwise
 // -1 = counterclockwise
 
-class Stepper extends LimitSwitch {
+class Stepper {
   constructor() {
     this.stepCounter = 0;
   }

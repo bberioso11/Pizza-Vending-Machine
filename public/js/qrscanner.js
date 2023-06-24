@@ -2,7 +2,7 @@ const Toast = Swal.mixin({
   toast: true,
   position: "top-end",
   showConfirmButton: false,
-  timer: 1000,
+  timer: 10000,
   timerProgressBar: true,
 });
 
@@ -88,7 +88,7 @@ function scanQRCode(video) {
                 await Swal.fire({
                   title: responseOrder.message,
                   icon: "success",
-                  timer: 15000,
+                  timer: 30000,
                   timerProgressBar: true,
                   showConfirmButton: false,
                 });

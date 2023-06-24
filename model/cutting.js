@@ -5,7 +5,7 @@ const limitswitch = new LimitSwitch();
 class Cutting extends Stepper {
   async forward() {
     const pins = [11, 8, 7, 26];
-    const steps = 3300;
+    const steps = 4200;
     for (let i = 0; i < steps; i++) {
       this.rotate(pins, 1);
       await this.delay(5);
@@ -16,7 +16,7 @@ class Cutting extends Stepper {
   async reset() {
     const pins = [11, 8, 7, 26];
     const limitswitchPin = 17;
-    const steps = 4000;
+    const steps = 5000;
     for (let i = 0; i < steps; i++) {
       const limitResult = await limitswitch.execute(limitswitchPin);
       if (limitResult) {

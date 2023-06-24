@@ -13,11 +13,11 @@ const setup = async () => {
 
   tomatosauce.reset();
   cooking.reset();
-  pizzaCrust.reset();
   await cutting.reset();
   await vslot.secondary(500, 1);
   await vslot.primaryReset(20000, -1);
   await vslot.secondaryReset(2000, -1);
+  await pizzaCrust.reset();
 };
 
 module.exports = setup;
