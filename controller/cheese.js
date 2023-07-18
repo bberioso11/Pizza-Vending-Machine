@@ -4,7 +4,8 @@ const TomatoSauce = require("../model/tomatosauce");
 const Cheese = require("../model/cheese");
 const Cooking = require("../model/cooking");
 const Cutting = require("../model/cutting");
-const LimitSwitch = require("../model/limitswitch");
+const Claim = require("../model/claim");
+
 const resetMachine = require("./resetmachine");
 const setup = async () => {
   const pizzaCrust = new PizzaCrust();
@@ -13,82 +14,165 @@ const setup = async () => {
   const cheese = new Cheese();
   const cooking = new Cooking();
   const cutting = new Cutting();
-  const limitswitch = new LimitSwitch();
+  const claim = new Claim();
 
   await resetMachine();
 
   // pizza crust
-  await pizzaCrust.forward();
+  await pizzaCrust.forward(28500);
+  await vslot.timeout(3000);
   pizzaCrust.reset();
-  await vslot.primary(400, 1);
-  tomatosauce.executeTomatoSauce(4500);
-  await vslot.secondary(900, 1);
 
   // run cooking
-  cooking.execCooking(258000);
+  cooking.execCooking(360000);
 
-  // tomato sauce
-  await vslot.primary(100, 1);
-  tomatosauce.executeTomatoSauce(4500);
+  //tomato Sauce
+  await vslot.primary(350, 1);
+  await vslot.secondary(150, 1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(600, 1);
+  tomatosauce.executeTomatoSauce(1);
+  await vslot.secondary(150, 1);
+
+  await vslot.primary(50, 1);
+  await vslot.secondary(150, -1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(600, -1);
+  tomatosauce.executeTomatoSauce(1);
+  await vslot.secondary(150, -1);
+
+  await vslot.primary(50, 1);
+  await vslot.secondary(150, 1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(600, 1);
+  tomatosauce.executeTomatoSauce(1);
+  await vslot.secondary(150, 1);
+
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
   await vslot.secondary(900, -1);
+  tomatosauce.executeTomatoSauce(1);
 
-  await vslot.primary(100, 1);
-  tomatosauce.executeTomatoSauce(4500);
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
   await vslot.secondary(900, 1);
+  tomatosauce.executeTomatoSauce(1);
 
-  await vslot.primary(100, 1);
-  tomatosauce.executeTomatoSauce(4500);
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
   await vslot.secondary(900, -1);
+  tomatosauce.executeTomatoSauce(1);
 
-  await vslot.primary(100, 1);
-  tomatosauce.executeTomatoSauce(4500);
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
   await vslot.secondary(900, 1);
+  tomatosauce.executeTomatoSauce(1);
 
-  await vslot.primary(100, 1);
-  tomatosauce.executeTomatoSauce(4500);
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
   await vslot.secondary(900, -1);
+  tomatosauce.executeTomatoSauce(1);
 
-  await vslot.primary(100, 1);
-  tomatosauce.executeTomatoSauce(4500);
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
   await vslot.secondary(900, 1);
+  tomatosauce.executeTomatoSauce(1);
 
-  await vslot.primary(100, 1);
-  tomatosauce.executeTomatoSauce(4500);
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
   await vslot.secondary(900, -1);
+  tomatosauce.executeTomatoSauce(1);
 
-  await vslot.primary(100, 1);
-  tomatosauce.executeTomatoSauce(4500);
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
   await vslot.secondary(900, 1);
+  tomatosauce.executeTomatoSauce(1);
 
-  //cheese
-  await vslot.primary(700, 1);
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(900, -1);
+  tomatosauce.executeTomatoSauce(1);
+
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(900, 1);
+  tomatosauce.executeTomatoSauce(1);
+
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(900, -1);
+  tomatosauce.executeTomatoSauce(1);
+
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(900, 1);
+  tomatosauce.executeTomatoSauce(1);
+
+  await vslot.primary(50, 1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(900, -1);
+  tomatosauce.executeTomatoSauce(1);
+
+  await vslot.primary(50, 1);
+  await vslot.secondary(150, 1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(600, 1);
+  tomatosauce.executeTomatoSauce(1);
+  await vslot.secondary(150, 1);
+
+  await vslot.primary(50, 1);
+  await vslot.secondary(150, -1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(600, -1);
+  tomatosauce.executeTomatoSauce(1);
+  await vslot.secondary(150, -1);
+
+  await vslot.primary(50, 1);
+  await vslot.secondary(150, 1);
+  tomatosauce.executeTomatoSauce(0);
+  await vslot.secondary(600, 1);
+  tomatosauce.executeTomatoSauce(1);
+  await vslot.secondary(150, 1);
+
+  //Cheese
+  await vslot.primary(600, 1);
   cheese.initRun(3500, 1000);
   await vslot.secondary(900, -1);
+  await vslot.timeout(1000);
 
   await vslot.primary(300, 1);
   cheese.initRun(3900, 0);
   await vslot.secondary(900, 1);
+  await vslot.timeout(1000);
 
-  await vslot.primary(300, 1);
+  await vslot.primary(280, 1);
   cheese.initRun(3600, 500);
   await vslot.secondary(900, -1);
+  await vslot.timeout(1000);
 
-  // cooking
-  await vslot.primary(2700, 1);
-  await vslot.secondary(1000, 1);
-  await vslot.timeout(180000);
+  // flatting
+  await vslot.primary(200, -1);
+  await vslot.secondary(300, 1);
+  await vslot.primary(1420, 1);
+
+  // Cooking
+  await vslot.primary(1600, 1);
+  await vslot.secondary(700, 1);
+  await cooking.led(0);
+  await vslot.timeout(240000);
   //await vslot.timeout(5000);
+  await cooking.led(1);
 
   // cutting
-  await vslot.primary(1700, 1);
+  await vslot.primary(1800, 1);
   await vslot.secondary(300, -1);
   await cutting.forward();
   await cutting.reset();
   //await vslot.timeout(5000);
 
   // claim
-  await vslot.primary(1000, 1);
-  await vslot.secondary(700, -1);
+  await claim.primary(1000, 1);
+  await claim.secondary(700, -1);
 };
 
 module.exports = setup;

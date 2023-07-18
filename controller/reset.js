@@ -1,26 +1,22 @@
 const PizzaCrust = require("../model/pizzacrust");
 const Vslot = require("../model/vslot");
 const TomatoSauce = require("../model/tomatosauce");
+const Cheese = require("../model/cheese");
 const Cooking = require("../model/cooking");
 const Cutting = require("../model/cutting");
+const LimitSwitch = require("../model/limitswitch");
 const Pepperoni = require("../model/pepperoni");
-
+const resetMachine = require("./resetmachine");
 const setup = async () => {
   const pizzaCrust = new PizzaCrust();
   const vslot = new Vslot();
   const tomatosauce = new TomatoSauce();
-  const cutting = new Cutting();
+  const cheese = new Cheese();
   const cooking = new Cooking();
-  const pepperoni = new Pepperoni();
+  const cutting = new Cutting();
+  const limitswitch = new LimitSwitch();
 
-  tomatosauce.reset();
-  cooking.reset();
-  pepperoni.reset();
-  await cutting.reset();
-  await vslot.secondary(500, 1);
-  await vslot.primaryReset(20000, -1);
-  await vslot.secondaryReset(2000, -1);
-  await pizzaCrust.reset();
+  await resetMachine();
 };
 
-module.exports = setup;
+setup();

@@ -1,7 +1,8 @@
 const Gpio = require("pigpio").Gpio;
 
 class LimitSwitch {
-  async execute(pin) {
+  async execute() {
+    const pin = 17;
     const limitSwitch = new Gpio(pin, {
       mode: Gpio.INPUT,
       pullUpDown: Gpio.PUD_UP,

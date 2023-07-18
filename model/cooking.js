@@ -13,9 +13,16 @@ class Cooking extends Relay {
     });
   }
 
+  async led(state) {
+    const LEDpin = 21;
+    this.executeRelay(LEDpin, state);
+  }
+
   async reset() {
     const pin = 19;
+    const LEDpin = 21;
     this.executeRelay(pin, 1);
+    this.executeRelay(LEDpin, 1);
   }
 }
 
